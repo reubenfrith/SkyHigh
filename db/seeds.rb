@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-User.destroy_all
-Aircraft.destroy_all
-puts "Cleaning Database"
-puts "Creating Users and their aircrafts"
+# User.destroy_all
+# Aircraft.destroy_all
+# puts "Cleaning Database"
+# puts "Creating Users and their aircrafts"
 
 # 5.times do
 #   user = User.create!(
@@ -20,29 +20,23 @@ puts "Creating Users and their aircrafts"
 #   )
 # end
 
-aircraft = Aircraft.create!(
-  title: Faker::Lorem.sentence,
-  description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
-  aircraft_type: Faker::Space.launch_vehicle,
-  price_per_day: rand (150..2000),
-  max_occupants: rand(4..30),
-  departure_address: Faker::Address.city,
-  arrival_address: Faker::Address.city,
-  user_id: 2
+## Need to manually increment user id to assign an aircraft to a user
+# aircraft = Aircraft.create!(
+#   title: Faker::Lorem.sentence,
+#   description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
+#   aircraft_type: Faker::Space.launch_vehicle,
+#   price_per_day: rand(150..2000),
+#   max_occupants: rand(4..30),
+#   departure_address: Faker::Address.city,
+#   arrival_address: Faker::Address.city,
+#   user_id: 11
+# )
+# puts "finished!"
+
+booking = Booking.create!(
+  start_date: DateTime.strptime("23/12/2022 11:00", "%d/%m/%Y %H:%M"),
+  end_date: DateTime.strptime("26/12/2022 11:00", "%d/%m/%Y %H:%M"),
+  total_price: (729*3),
+  user_id: 8,
+  aircraft_id: 6
 )
-puts "finished!"
-
-# User.create!(
-#   first_name: "Dimitri",
-#   last_name: "Mastrantonis",
-#   email: "dimitri.mastrantonis@hotmail.com",
-#   password: "passy123"
-# )
-
-# Aircraft.create!(
-#   aircraft_type:
-#   title:
-#   description:
-#   price_per_day:
-#   max_occupants:
-# )
