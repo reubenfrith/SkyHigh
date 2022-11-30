@@ -16,28 +16,28 @@
 ## Types of change
 <!-- What types of change does your code introduce? (put an x between the brackets) -->
 
-- [] New feature (change which adds functionality)
+- [ ] New feature (change which adds functionality)
 
-- [] Bug fix (change which fixes an issue)
+- [ ] Bug fix (change which fixes an issue)
 
-- [] Improvement/refactoring (change that doesn't add any features but makes things better)
+- [ ] Improvement/refactoring (change that doesn't add any features but makes things better)
 
-- [] Styling (style changes that don't affect functionality)
+- [ ] Styling (style changes that don't affect functionality)
 
 ## Checklist before submitting
 
 <!-- Ensure the PR satisfies the points below (put an x between the brackets)-->
 
-- [] Satisfies card on Trello
+- [ ] Satisfies card on Trello
 
-- [] Has had a another team mate review your design.
+- [ ] Has had a another team mate review your design.
 
-- [] No known defects
+- [ ] No known defects
 
-- [] Appropriate tests completed (e.g. core functionality, edge cases)
+- [ ] Appropriate tests completed (e.g. core functionality, edge cases)
 
-- [] Code has been formatted with nicely and contains proper indentation.
+- [ ] Code has been formatted with nicely and contains proper indentation.
 
-- [] Code comments as appropriate
+- [ ] Code comments as appropriate
 
-- [] `master` branch has been merged into the feature branch and tested (if any newer commits on `master`)
+- [ ] `master` branch has been merged into the feature branch and tested (if any newer commits on `master`)
