@@ -1,42 +1,266 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+puts "Cleaning database..."
 
-# User.destroy_all
-# Aircraft.destroy_all
-# puts "Cleaning Database"
-# puts "Creating Users and their aircrafts"
+User.destroy_all
+Aircraft.destroy_all
+Booking.destroy_all
 
-# 5.times do
-#   user = User.create!(
-#     first_name: Faker::Name.first_name,
-#     last_name: Faker::Name.last_name,
-#     email: Faker::Internet.email,
-#     password: Faker::Internet.password
-#   )
-# end
+puts "Creating 10 users..."
 
-## Need to manually increment user id to assign an aircraft to a user
-# aircraft = Aircraft.create!(
-#   title: Faker::Lorem.sentence,
-#   description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
-#   aircraft_type: Faker::Space.launch_vehicle,
-#   price_per_day: rand(150..2000),
-#   max_occupants: rand(4..30),
-#   departure_address: Faker::Address.city,
-#   arrival_address: Faker::Address.city,
-#   user_id: 11
-# )
-# puts "finished!"
-
-booking = Booking.create!(
-  start_date: DateTime.strptime("23/12/2022 11:00", "%d/%m/%Y %H:%M"),
-  end_date: DateTime.strptime("26/12/2022 11:00", "%d/%m/%Y %H:%M"),
-  total_price: (729*3),
-  user_id: 8,
-  aircraft_id: 6
+user1 = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password
 )
+
+user2 = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password
+)
+
+user3 = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password
+)
+
+user4 = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password
+)
+
+user5 = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password
+)
+
+user6 = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password
+)
+
+user7 = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password
+)
+
+user8 = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password
+)
+
+user9 = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password
+)
+
+user10 = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password
+)
+
+puts "Creating some extra users..."
+
+5.times do
+  User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password
+  )
+end
+
+puts "Creating aircraft with their owners..."
+
+aircraft_type = [
+  "Hot Air Balloon", "Boeing 747","Fighter jet", "Blimp",
+  "Glider", "Parachute", "Fixed Wing Aeroplane", "Helicopter", "Spaceship",
+  "Apache Helicopter", "Rocket Ship", "Plane", "Airplane", "Aeroplane", "Taipan Helicopter",
+  "Propeller Aircraft", "Boeing B-29 Superfortress", "North American P-51 Mustang", "	Zeppelin interceptor",
+  "F/A-18A Hornet", "KC-130J Super Hercules", "AV-8B/+ Harrier II"
+]
+
+title = [
+  "The most adventure you've ever had", "Feel like a bird", "Fly high and enjoy the sky",
+  "Fly high and get high", "Don't be a punk come and fly", "Be maverick for a day",
+  "Do cool stuff in the sky", "Don't be afraid of heights", "Sick of being on the ground?",
+  "Who says you can't fly and not die", "Sight seeing up high", "Flying tours that will bring you joy",
+  "Up high with a smile", "Come fly you lil' B****", "Sissy? You still afraid of heights"
+]
+
+3.times do
+  Aircraft.create!(
+    title: title.sample,
+    description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
+    aircraft_type: aircraft_type.sample,
+    price_per_day: rand(150..2000),
+    max_occupants: rand(2..20),
+    departure_address: Faker::Address.full_address,
+    arrival_address: Faker::Address.full_address,
+    user_id: user1.id
+  )
+end
+
+3.times do
+  Aircraft.create!(
+    title: title.sample,
+    description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
+    aircraft_type: aircraft_type.sample,
+    price_per_day: rand(150..2000),
+    max_occupants: rand(4..30),
+    departure_address: Faker::Address.full_address,
+    arrival_address: Faker::Address.full_address,
+    user_id: user2.id
+  )
+end
+
+aircraft3 = Aircraft.create!(
+  title: title.sample,
+  description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
+  aircraft_type: aircraft_type.sample,
+  price_per_day: rand(150..2000),
+  max_occupants: rand(4..30),
+  departure_address: Faker::Address.full_address,
+  arrival_address: Faker::Address.full_address,
+  user_id: user3.id
+)
+
+aircraft4 = Aircraft.create!(
+  title: title.sample,
+  description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
+  aircraft_type: aircraft_type.sample,
+  price_per_day: rand(150..2000),
+  max_occupants: rand(4..30),
+  departure_address: Faker::Address.full_address,
+  arrival_address: Faker::Address.full_address,
+  user_id: user4.id
+)
+
+aircraft5 = Aircraft.create!(
+  title: title.sample,
+  description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
+  aircraft_type: aircraft_type.sample,
+  price_per_day: rand(150..2000),
+  max_occupants: rand(4..30),
+  departure_address: Faker::Address.full_address,
+  arrival_address: Faker::Address.full_address,
+  user_id: user5.id
+)
+
+aircraft6 = Aircraft.create!(
+  title: title.sample,
+  description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
+  aircraft_type: aircraft_type.sample,
+  price_per_day: rand(150..2000),
+  max_occupants: rand(4..30),
+  departure_address: Faker::Address.full_address,
+  arrival_address: Faker::Address.full_address,
+  user_id: user6.id
+)
+
+aircraft7 = Aircraft.create!(
+  title: title.sample,
+  description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
+  aircraft_type: aircraft_type.sample,
+  price_per_day: rand(150..2000),
+  max_occupants: rand(4..30),
+  departure_address: Faker::Address.full_address,
+  arrival_address: Faker::Address.full_address,
+  user_id: user7.id
+)
+
+aircraft8 = Aircraft.create!(
+  title: title.sample,
+  description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
+  aircraft_type: aircraft_type.sample,
+  price_per_day: rand(150..2000),
+  max_occupants: rand(4..30),
+  departure_address: Faker::Address.full_address,
+  arrival_address: Faker::Address.full_address,
+  user_id: user8.id
+)
+
+puts "Creating some bookings..."
+
+Booking.create!(
+  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
+  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
+  total_price: rand(150..2000)*rand(1..10),
+  user_id: user3.id,
+  aircraft_id: aircraft4.id
+)
+
+Booking.create!(
+  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
+  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
+  total_price: rand(150..2000)*rand(1..10),
+  user_id: user4.id,
+  aircraft_id: aircraft3.id
+)
+
+Booking.create!(
+  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
+  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
+  total_price: rand(150..2000)*rand(1..10),
+  user_id: user3.id,
+  aircraft_id: aircraft5.id
+)
+
+Booking.create!(
+  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
+  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
+  total_price: rand(150..2000)*rand(1..10),
+  user_id: user5.id,
+  aircraft_id: aircraft6.id
+)
+
+Booking.create!(
+  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
+  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
+  total_price: rand(150..2000)*rand(1..10),
+  user_id: user7.id,
+  aircraft_id: aircraft6.id
+)
+
+Booking.create!(
+  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
+  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
+  total_price: rand(150..2000)*rand(1..10),
+  user_id: user10.id,
+  aircraft_id: aircraft7.id
+)
+
+Booking.create!(
+  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
+  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
+  total_price: rand(150..2000)*rand(1..10),
+  user_id: user9.id,
+  aircraft_id: aircraft8.id
+)
+
+Booking.create!(
+  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
+  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
+  total_price: rand(150..2000)*rand(1..10),
+  user_id: user5.id,
+  aircraft_id: aircraft3.id
+)
+
+puts "Finished!"
