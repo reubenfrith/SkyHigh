@@ -1,0 +1,13 @@
+<H2> Hello from New Aircrafts </H2>
+
+<form class="new_aircraft" id="new_restaurant"
+action="/aircraft" accept-charset="UTF-8" method="post" data-remote="true">
+<%= form_with model: @aircraft do |f| %>
+  <%= f.label :aircraft_type %>
+  <%= f.label :title %>
+  <%= f.text_field :description %>
+  <%= f.label :max_occupants %>
+  <%= f.label :price_per_day %>
+  <%= f.text_field :departure_address %>
+  <%= f.submit%>
+<% end %>
