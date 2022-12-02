@@ -6,6 +6,7 @@
 
 # puts "Creating 10 users..."
 
+<<<<<<< HEAD
 userDimitri = User.create!(
   first_name: "Dimitri",
   last_name: "Mastrantonis",
@@ -47,6 +48,49 @@ userDimitri = User.create!(
 #   email: Faker::Internet.email,
 #   password: Faker::Internet.password
 # )
+=======
+user1 = User.create!(
+  first_name: "John",
+  last_name: "Doe",
+  email: "john@gmail.com",
+  password: "123456"
+)
+
+user2 = User.create!(
+  first_name: "Jane",
+  last_name: "Doe",
+  email: "jane@gmail.com",
+  password: "123456"
+)
+
+user3 = User.create!(
+  first_name: "Dimitri",
+  last_name: "M",
+  email: "dimitri@gmail.com",
+  password: "123456"
+)
+
+user4 = User.create!(
+  first_name: "Zhenni",
+  last_name: "Z",
+  email: "zhenni@gmail.com",
+  password: "123456"
+)
+
+user5 = User.create!(
+  first_name: "Adam",
+  last_name: "D",
+  email: "adam@gmail.com",
+  password: "123456"
+)
+
+user6 = User.create!(
+  first_name: "Reuben",
+  last_name: "R",
+  email: "reuben@gmail.com",
+  password: "123456"
+)
+>>>>>>> master
 
 # user7 = User.create!(
 #   first_name: Faker::Name.first_name,
