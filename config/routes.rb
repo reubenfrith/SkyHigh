@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   }
   root to: "aircrafts#index"
   resources :aircrafts
-
 end
 
 
