@@ -7,6 +7,11 @@ class AircraftsController < ApplicationController
     @aircraft = Aircraft.new
   end
 
+  def show
+    @aircraft = Aircraft.find(params[:id])
+  end
+
+
   def create
     @aircraft = Aircraft.new(aircraft_params)
     @aircraft.user = current_user
