@@ -1,0 +1,36 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1>Aircrafts For Hire</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @aircrafts.each do |aircraft| %>
+      <div class="col-md-4">
+        <div class="aircraft-card">
+          <div class="aircraft-card-content">
+            <div class="aircraft-card-title">
+              <h4><%= aircraft.title %></h4>
+            </div>
+            <p><%= aircraft.description %></p>
+            <p><%= aircraft.aircraft_type %></p>
+            <div class="flex">
+              <div class="flex align-items-center">
+                <span>Departure Address</span>
+                <div><%= aircraft.departure_address %></div>
+              </div>
+              <div class="flex align-items-center">
+                <span>Arrival Address</span>
+                <div><%= aircraft.arrival_address %></div>
+              </div>
+            </div>
+          </div>
+          <div class="flat-card-actions">
+            <%= link_to "More info", aircraft_path(aircraft) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
