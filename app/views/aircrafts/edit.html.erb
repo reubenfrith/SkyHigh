@@ -1,0 +1,12 @@
+<H2> Edit your <%= @aircraft.aircraft_type %></H2>
+
+<%= simple_form_for(@aircraft) do |f| %>
+  <%= f.input :aircraft_type %>
+  <%= f.input :title %>
+  <%= f.input  :description %>
+  <%= f.input  :max_occupants %>
+  <%= f.input  :price_per_day %>
+  <%= f.input  :arrival_address %>
+  <%= f.input  :departure_address %>
+  <%= f.submit %>
+<% end %>

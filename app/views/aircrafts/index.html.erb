@@ -13,16 +13,15 @@
             <div class="aircraft-card-title">
               <h4><%= aircraft.title %></h4>
             </div>
-            <p><%= aircraft.description %></p>
             <p><%= aircraft.aircraft_type %></p>
             <div class="flex">
               <div class="flex align-items-center">
-                <span>Departure Address</span>
-                <div><%= aircraft.departure_address %></div>
+                <b><span>Departure City:</span></b>
+                <span><%= aircraft.departure_address %></span>
               </div>
               <div class="flex align-items-center">
-                <span>Arrival Address</span>
-                <div><%= aircraft.arrival_address %></div>
+                <b><span>Arrival City:</span></b>
+                <span><%= aircraft.arrival_address %></span>
               </div>
             </div>
           </div>

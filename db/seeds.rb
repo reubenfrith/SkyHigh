@@ -112,8 +112,8 @@ title = [
     aircraft_type: aircraft_type.sample,
     price_per_day: rand(150..2000),
     max_occupants: rand(2..20),
-    departure_address: Faker::Address.full_address,
-    arrival_address: Faker::Address.full_address,
+    departure_address: Faker::Address.city,
+    arrival_address: Faker::Address.city,
     user_id: user1.id
   )
 end
@@ -125,8 +125,8 @@ end
     aircraft_type: aircraft_type.sample,
     price_per_day: rand(150..2000),
     max_occupants: rand(4..30),
-    departure_address: Faker::Address.full_address,
-    arrival_address: Faker::Address.full_address,
+    departure_address: Faker::Address.city,
+    arrival_address: Faker::Address.city,
     user_id: user2.id
   )
 end
@@ -137,8 +137,8 @@ aircraft3 = Aircraft.create!(
   aircraft_type: aircraft_type.sample,
   price_per_day: rand(150..2000),
   max_occupants: rand(4..30),
-  departure_address: Faker::Address.full_address,
-  arrival_address: Faker::Address.full_address,
+  departure_address: Faker::Address.city,
+  arrival_address: Faker::Address.city,
   user_id: user3.id
 )
 
@@ -148,8 +148,8 @@ aircraft4 = Aircraft.create!(
   aircraft_type: aircraft_type.sample,
   price_per_day: rand(150..2000),
   max_occupants: rand(4..30),
-  departure_address: Faker::Address.full_address,
-  arrival_address: Faker::Address.full_address,
+  departure_address: Faker::Address.city,
+  arrival_address: Faker::Address.city,
   user_id: user4.id
 )
 
@@ -159,8 +159,8 @@ aircraft5 = Aircraft.create!(
   aircraft_type: aircraft_type.sample,
   price_per_day: rand(150..2000),
   max_occupants: rand(4..30),
-  departure_address: Faker::Address.full_address,
-  arrival_address: Faker::Address.full_address,
+  departure_address: Faker::Address.city,
+  arrival_address: Faker::Address.city,
   user_id: user5.id
 )
 
@@ -170,8 +170,8 @@ aircraft6 = Aircraft.create!(
   aircraft_type: aircraft_type.sample,
   price_per_day: rand(150..2000),
   max_occupants: rand(4..30),
-  departure_address: Faker::Address.full_address,
-  arrival_address: Faker::Address.full_address,
+  departure_address: Faker::Address.city,
+  arrival_address: Faker::Address.city,
   user_id: user6.id
 )
 
@@ -181,8 +181,8 @@ aircraft7 = Aircraft.create!(
   aircraft_type: aircraft_type.sample,
   price_per_day: rand(150..2000),
   max_occupants: rand(4..30),
-  departure_address: Faker::Address.full_address,
-  arrival_address: Faker::Address.full_address,
+  departure_address: Faker::Address.city,
+  arrival_address: Faker::Address.city,
   user_id: user7.id
 )
 
@@ -192,8 +192,8 @@ aircraft8 = Aircraft.create!(
   aircraft_type: aircraft_type.sample,
   price_per_day: rand(150..2000),
   max_occupants: rand(4..30),
-  departure_address: Faker::Address.full_address,
-  arrival_address: Faker::Address.full_address,
+  departure_address: Faker::Address.city,
+  arrival_address: Faker::Address.city,
   user_id: user8.id
 )
 
