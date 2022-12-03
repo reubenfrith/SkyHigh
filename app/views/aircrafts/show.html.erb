@@ -1,6 +1,11 @@
 
 <div class="container">
 <h1><%= @aircraft.title %></h1>
+<% if @aircraft.photos.attached? %>
+  <% @aircraft.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 200, width: 200, crop: :fill %>
+  <% end %>
+<% end %>
 <h3><%= @aircraft.aircraft_type %></h3>
 <p><%= @aircraft.description %></p>
 <p>Max Occupants: <%= @aircraft.max_occupants %></p>

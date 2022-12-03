@@ -27,7 +27,7 @@ class AircraftsController < ApplicationController
 
   def destroy
     @aircraft.destroy
-    redirect_to my_aircraft_path
+    redirect_to my_aircraft_aircrafts_path
   end
 
   def create
@@ -49,7 +49,7 @@ class AircraftsController < ApplicationController
   def aircraft_params
     params.require(:aircraft).permit(
       :aircraft_type, :title, :description, :price_per_day,
-      :max_occupants, :departure_address, :arrival_address
+      :max_occupants, :departure_address, :arrival_address, photos: []
     )
   end
 
