@@ -11,6 +11,15 @@ class AircraftsController < ApplicationController
     @aircraft = Aircraft.find(params[:id])
   end
 
+  def my_aircraft
+    @aircrafts = Aircraft.where("user_id = ?", current_user.id)
+  end
+
+  def destroy
+    @aircraft = Aircraft.find(params[:id])
+    @aircraft.destroy
+    redirect_to my_aircraft_path
+  end
 
   def create
     @aircraft = Aircraft.new(aircraft_params)
