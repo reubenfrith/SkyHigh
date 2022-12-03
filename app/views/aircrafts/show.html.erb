@@ -6,5 +6,5 @@
 <p>Departure Address: <%= @aircraft.departure_address %></p>
 <p>Arrival Address: <%= @aircraft.arrival_address %></p>
 <%# Current Place holder taking back to home page for now! should route to booking page %>
-<%= link_to "Make a booking!", aircrafts_path %>
+<%= link_to "Make a booking!",  new_booking_path(@aircraft) %>
 </div>
