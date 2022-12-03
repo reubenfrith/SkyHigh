@@ -18,7 +18,7 @@ class AircraftsController < ApplicationController
     if @aircraft.save
       redirect_to aircraft_path(@aircraft)
     else
-      raise
+      render :new, status: :unprocessable_entity
     end
   end
 
