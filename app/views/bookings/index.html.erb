@@ -1,0 +1,74 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1>Your Bookings</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @your_bookings.each do |booking| %>
+      <div class="col-md-4">
+        <div class="aircraft-card">
+          <div class="aircraft-card-content">
+            <div class="aircraft-card-title">
+              <% aircraft = Aircraft.find(booking.aircraft_id) %>
+              <h3><%= link_to "#{aircraft.title}", aircraft_path(aircraft) %></h3>
+              <h5>Aircraft: <%= aircraft.aircraft_type %></h5>
+            </div>
+            <div class="flex">
+              <div class="flex align-items-center">
+                <b><span>Start Date:</span></b>
+                <span><%= booking.start_date %></span>
+              </div>
+              <div class="flex align-items-center">
+                <b><span>End Date:</span></b>
+                <span><%= booking.end_date %></span>
+              </div>
+            </div>
+          </div>
+          <div class="flat-card-actions">
+            <%= link_to "More info", aircrafts_path %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+    <div class="row">
+    <div class="col-12">
+      <h1>Your Aircraft Bookings</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @your_aircraft_bookings.each do |booking| %>
+      <div class="col-md-4">
+        <div class="aircraft-card">
+          <div class="aircraft-card-content">
+            <div class="aircraft-card-title">
+              <% aircraft = Aircraft.find(booking.aircraft_id) %>
+              <h3><%= link_to "#{aircraft.title}", aircraft_path(aircraft) %></h3>
+              <h5>Aircraft: <%= aircraft.aircraft_type %></h5>
+            </div>
+            <% user = User.find(booking.user_id) %>
+            <p>Person Booking: <%= user.first_name %> <%= user.last_name %></p>
+            <div class="flex">
+              <div class="flex align-items-center">
+                <b><span>Start Date:</span></b>
+                <span><%= booking.start_date %></span>
+              </div>
+              <div class="flex align-items-center">
+                <b><span>End Date:</span></b>
+                <span><%= booking.end_date %></span>
+              </div>
+            </div>
+          </div>
+          <div class="flat-card-actions">
+            <%= link_to "Accept", aircrafts_path %>
+            <%= link_to "Reject", aircrafts_path %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
