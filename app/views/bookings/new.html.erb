@@ -1,0 +1,8 @@
+<h2>Book Now!</h2>
+
+<%= simple_form_for [@aircraft, @booking] do |f| %>
+
+  <%= f.input  :start_date, as: :date, html5: true %>
+  <%= f.input  :end_date, as: :date, html5: true %>
+  <%= f.submit %>
+<% end %>
