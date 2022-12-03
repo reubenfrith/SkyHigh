@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :aircrafts
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
   root to: "aircrafts#index"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-
+  resources :aircrafts
 end
+
+
+# Rails.application.routes.draw do
+#   devise_for :users, controllers: {
+#     sessions: 'users/sessions'
+#   }
+# end
