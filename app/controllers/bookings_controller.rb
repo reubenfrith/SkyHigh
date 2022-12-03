@@ -1,6 +1,11 @@
 class BookingsController < ApplicationController
   before_action :set_aircraft, only: %i[new create]
 
+  def index
+    @your_bookings = Booking.where("user_id = ?", current_user.id)
+    @your_aircraft_bookings = Booking.joins(:aircraft).where(aircraft: { user_id: current_user.id })
+  end
+
   def new
     @booking = Booking.new
   end
