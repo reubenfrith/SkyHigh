@@ -1,22 +1,14 @@
 <H2> Have a plane you want to rent out? List it on SkyHigh!</H2>
 
-<<<<<<< HEAD
-<%# <form class="new_aircraft" id="new_aircraft"
-action="/aircraft" accept-charset="UTF-8" method="post" data-remote="true"> %>
-=======
 <form class="new_aircraft" id="new_restaurant"
 action="/aircraft" accept-charset="UTF-8" method="post" data-remote="true">
->>>>>>> master
 <%= simple_form_for(@aircraft) do |f| %>
   <%= f.input :aircraft_type %>
   <%= f.input :title %>
   <%= f.input  :description %>
   <%= f.input  :max_occupants %>
   <%= f.input  :price_per_day %>
-  <%= f.input  :departure_address %>
-<<<<<<< HEAD
   <%= f.input  :arrival_address %>
-=======
->>>>>>> master
+  <%= f.input  :departure_address %>
   <%= f.submit%>
 <% end %>
