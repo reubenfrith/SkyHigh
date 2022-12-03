@@ -11,13 +11,26 @@ class AircraftsController < ApplicationController
     @aircraft = Aircraft.find(params[:id])
   end
 
+<<<<<<< HEAD
+=======
+  def my_aircraft
+    @aircrafts = Aircraft.where("user_id = ?", current_user.id)
+  end
+
+  def destroy
+    @aircraft = Aircraft.find(params[:id])
+    @aircraft.destroy
+    redirect_to my_aircraft_path
+  end
+
+>>>>>>> master
   def create
     @aircraft = Aircraft.new(aircraft_params)
     @aircraft.user = current_user
     if @aircraft.save
       redirect_to aircraft_path(@aircraft)
     else
-      raise
+      render :new, status: :unprocessable_entity
     end
   end
 
