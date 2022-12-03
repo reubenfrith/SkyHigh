@@ -1,12 +1,11 @@
 class BookingsController < ApplicationController
+  before_action :set_aircraft, only: %i[new create]
 
   def new
     @booking = Booking.new
-    @aircraft = Aircraft.find(params[:aircraft_id])
   end
 
   def create
-    @aircraft = Aircraft.find(params[:aircraft_id])
     @booking = Booking.new(booking_params)
     @booking.aircraft = @aircraft
     @booking.user = current_user
@@ -31,6 +30,10 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(
       :start_date, :end_date, :aircraft_id, :user_id, :total_price
     )
+  end
+
+  def set_aircraft
+    @aircraft = Aircraft.find(params[:aircraft_id])
   end
 
 end

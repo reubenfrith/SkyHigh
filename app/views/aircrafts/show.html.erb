@@ -3,8 +3,9 @@
 <h1><%= @aircraft.title %></h1>
 <h3><%= @aircraft.aircraft_type %></h3>
 <p><%= @aircraft.description %></p>
+<p>Max Occupants: <%= @aircraft.max_occupants %></p>
+<p>Price per day: <%= @aircraft.price_per_day %></p>
 <p>Departure Address: <%= @aircraft.departure_address %></p>
 <p>Arrival Address: <%= @aircraft.arrival_address %></p>
-<%# Current Place holder taking back to home page for now! should route to booking page %>
 <%= link_to "Make a booking!",  new_aircraft_booking_path(@aircraft) %>
 </div>s

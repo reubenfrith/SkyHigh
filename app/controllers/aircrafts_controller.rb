@@ -1,4 +1,6 @@
 class AircraftsController < ApplicationController
+  before_action :set_aircraft, only: %i[destroy show edit]
+
   def index
     @aircrafts = Aircraft.all
   end
@@ -8,15 +10,22 @@ class AircraftsController < ApplicationController
   end
 
   def show
-    @aircraft = Aircraft.find(params[:id])
   end
 
   def my_aircraft
     @aircrafts = Aircraft.where("user_id = ?", current_user.id)
   end
 
-  def destroy
+  def edit
+  end
+
+  def update
     @aircraft = Aircraft.find(params[:id])
+    @aircraft.update(aircraft_params)
+    redirect_to aircraft_path(@aircraft)
+  end
+
+  def destroy
     @aircraft.destroy
     redirect_to my_aircraft_path
   end
@@ -32,6 +41,10 @@ class AircraftsController < ApplicationController
   end
 
   private
+
+  def set_aircraft
+    @aircraft = Aircraft.find(params[:id])
+  end
 
   def aircraft_params
     params.require(:aircraft).permit(
