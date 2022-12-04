@@ -7,8 +7,8 @@
 
   <div class="row g-5 ">
     <% @aircrafts.each do |aircraft| %>
-    <div class="col-3 card-deck">
-    <div class="card rounded-3 h-100 " >
+    <div class="col-3 card-deck ">
+    <div class="card rounded-3 h-100 shadow" >
       <% if aircraft.photos.attached? %>
           <%= cl_image_tag aircraft.photos[0].key, class: "card-img-top",:gravity=>"auto", :crop=>"fill" %>
       <% end %>
