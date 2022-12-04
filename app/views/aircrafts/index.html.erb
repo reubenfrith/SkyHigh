@@ -13,13 +13,13 @@
           <%= cl_image_tag aircraft.photos[0].key, class: "card-img-top",:gravity=>"auto", :crop=>"fill" %>
       <% end %>
       <div class="card-body">
-        <h5 class="card-title"><%= aircraft.title %></h5>
+        <h5 class="card-title"><%= aircraft.aircraft_type %></h5>
         <p class="card-text">
-        <p><%= aircraft.aircraft_type %>
           <p><b><span>Departure City:</span></b>
           <span><%= aircraft.departure_address %></span></p>
-          <b><span>Arrival City:</span></b>
-          <span><%= aircraft.arrival_address %></span>
+          <p><b><span>Arrival City:</span></b>
+          <span><%= aircraft.arrival_address %></span></p>
+          <p><b>Seats:</b> <%= aircraft.max_occupants %></p>
         </p>
       </div>
       <div class="card-footer bg-transparent border-0">
