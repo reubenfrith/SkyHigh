@@ -1,35 +1,30 @@
 <div class="container mt-3">
-  <div class="row">
+  <div class="row gy-5">
     <div class="col-12">
       <h1>Aircrafts For Hire</h1>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row g-5">
     <% @aircrafts.each do |aircraft| %>
-      <div class="col-md-4">
-        <div class="aircraft-card">
-          <div class="aircraft-card-content">
-            <div class="aircraft-card-title">
-              <h4><%= aircraft.title %></h4>
-            </div>
-            <p><%= aircraft.aircraft_type %></p>
-            <div class="flex">
-              <div class="flex align-items-center">
-                <b><span>Departure City:</span></b>
-                <span><%= aircraft.departure_address %></span>
-              </div>
-              <div class="flex align-items-center">
-                <b><span>Arrival City:</span></b>
-                <span><%= aircraft.arrival_address %></span>
-              </div>
-            </div>
-          </div>
-          <div class="flat-card-actions">
-            <%= link_to "More info", aircraft_path(aircraft) %>
-          </div>
-        </div>
+    <div class="col-3 card-deck ">
+    <div class="card rounded-3" >
+      <% if aircraft.photos.attached? %>
+          <%= cl_image_tag aircraft.photos[0].key, class: "card-img-top",:gravity=>"auto", :crop=>"fill" %>
+      <% end %>
+      <div class="card-body">
+        <h5 class="card-title"><%= aircraft.title %></h5>
+        <p class="card-text">
+        <p><%= aircraft.aircraft_type %></p>
+          <p><b><span>Departure City:</span></b>
+          <span><%= aircraft.departure_address %></span></p>
+          <b><span>Arrival City:</span></b>
+          <span><%= aircraft.arrival_address %></span>
+        </p>
+        <%= link_to "More info", aircraft_path(aircraft), class: "btn btn-primary" %>
       </div>
+    </div>
+</div>
     <% end %>
   </div>
 </div>
