@@ -1,14 +1,14 @@
 <div class="container mt-3">
   <div class="row gy-5">
     <div class="col-12">
-      <h1>Aircrafts For Hire</h1>
+      <h1>Hire an Aircraft</h1>
     </div>
   </div>
 
   <div class="row g-5">
     <% @aircrafts.each do |aircraft| %>
-    <div class="col-3 card-deck ">
-    <div class="card rounded-3" >
+    <div class="col-3 card-deck">
+    <div class="card rounded-3 h-100" >
       <% if aircraft.photos.attached? %>
           <%= cl_image_tag aircraft.photos[0].key, class: "card-img-top",:gravity=>"auto", :crop=>"fill" %>
       <% end %>
@@ -16,13 +16,16 @@
         <h5 class="card-title"><%= aircraft.title %></h5>
         <p class="card-text">
         <p><%= aircraft.aircraft_type %></p>
+        <p>From $<%= aircraft.price_per_day %></p>
           <p><b><span>Departure City:</span></b>
           <span><%= aircraft.departure_address %></span></p>
           <b><span>Arrival City:</span></b>
           <span><%= aircraft.arrival_address %></span>
         </p>
-        <%= link_to "More info", aircraft_path(aircraft), class: "btn btn-primary" %>
       </div>
+      <div class="card-footer bg-transparent border-0">
+        <%= link_to "Book Now", aircraft_path(aircraft), class: "btn btn-primary w-100" %>
+        </div>
     </div>
 </div>
     <% end %>
