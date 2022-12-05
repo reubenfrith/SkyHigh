@@ -311,17 +311,23 @@ aircraft8.photos.purge
 
 puts "Adding photos to the aircraft..."
 
-a = URI.open(aircraft_images.sample)
-aircraft1.photos.attach(io: a, filename: "a1.jpg", content_type: "image/jpg")
-aircraft1.save
+2.times do
+  a = URI.open(aircraft_images.sample)
+  aircraft1.photos.attach(io: a, filename: "a1.jpg", content_type: "image/jpg")
+  aircraft1.save
+end
 
-a = URI.open(aircraft_images.sample)
-aircraft2.photos.attach(io: a, filename: "a2.jpg", content_type: "image/jpg")
-aircraft2.save
+3.times do
+  a = URI.open(aircraft_images.sample)
+  aircraft2.photos.attach(io: a, filename: "a2.jpg", content_type: "image/jpg")
+  aircraft2.save
+end
 
-a = URI.open(aircraft_images.sample)
-aircraft3.photos.attach(io: a, filename: "a3.jpg", content_type: "image/jpg")
-aircraft3.save
+2.times do
+  a = URI.open(aircraft_images.sample)
+  aircraft3.photos.attach(io: a, filename: "a3.jpg", content_type: "image/jpg")
+  aircraft3.save
+end
 
 a = URI.open(aircraft_images.sample)
 aircraft4.photos.attach(io: a, filename: "a4.jpg", content_type: "image/jpg")
@@ -335,12 +341,16 @@ a = URI.open(aircraft_images.sample)
 aircraft6.photos.attach(io: a, filename: "a6.jpg", content_type: "image/jpg")
 aircraft6.save
 
-a = URI.open(aircraft_images.sample)
-aircraft7.photos.attach(io: a, filename: "a7.jpg", content_type: "image/jpg")
-aircraft7.save
+2.times do
+  a = URI.open(aircraft_images.sample)
+  aircraft7.photos.attach(io: a, filename: "a7.jpg", content_type: "image/jpg")
+  aircraft7.save
+end
 
-a = URI.open(aircraft_images.sample)
-aircraft8.photos.attach(io: a, filename: "a8.jpg", content_type: "image/jpg")
-aircraft8.save
+3.times do
+  a = URI.open(aircraft_images.sample)
+  aircraft8.photos.attach(io: a, filename: "a8.jpg", content_type: "image/jpg")
+  aircraft8.save
+end
 
 puts "Finished!"
