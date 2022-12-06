@@ -27,9 +27,10 @@
             </div>
           </div>
           <div class="flat-card-actions">
-            <%= link_to "More info", aircrafts_path %>
+            <%= link_to "More info", aircrafts_path, class: "btn btn-primary " %>
             <%= link_to "Delete this booking",  booking_path(booking),
             class: "btn btn-danger text-white" ,data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+            <%= link_to "Request to change booking", edit_booking_path(booking), class: "btn btn-secondary "  %>
           </div>
         </div>
       </div>

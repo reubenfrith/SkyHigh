@@ -34,10 +34,14 @@ class BookingsController < ApplicationController
     @aircraft = Aircraft.find(@booking.aircraft_id)
   end
 
+  def edit
+  end
+
   def update
     @booking = Booking.find(params[:id])
+    @aircraft = @bookig.aircraft
     @booking.update(booking_params)
-    redirect_to booking_path(@aircraft)
+    redirect_to booking_path(@booking)
   end
 
   private

@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :bookings, only: %i[update destroy show index]
+  resources :bookings, only: %i[update edit destroy show index]
 end
