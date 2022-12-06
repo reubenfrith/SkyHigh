@@ -213,7 +213,8 @@ Booking.create!(
   end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
   total_price: rand(150..2000)*rand(1..10),
   user_id: user3.id,
-  aircraft_id: aircraft4.id
+  aircraft_id: aircraft4.id,
+  status: true
 )
 
 Booking.create!(
@@ -221,7 +222,8 @@ Booking.create!(
   end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
   total_price: rand(150..2000)*rand(1..10),
   user_id: user4.id,
-  aircraft_id: aircraft3.id
+  aircraft_id: aircraft3.id,
+  status: true
 )
 
 Booking.create!(
@@ -229,7 +231,8 @@ Booking.create!(
   end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
   total_price: rand(150..2000)*rand(1..10),
   user_id: user3.id,
-  aircraft_id: aircraft5.id
+  aircraft_id: aircraft5.id,
+  status: true
 )
 
 Booking.create!(
@@ -237,7 +240,8 @@ Booking.create!(
   end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
   total_price: rand(150..2000)*rand(1..10),
   user_id: user5.id,
-  aircraft_id: aircraft6.id
+  aircraft_id: aircraft6.id,
+  status: true
 )
 
 Booking.create!(
@@ -245,7 +249,8 @@ Booking.create!(
   end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
   total_price: rand(150..2000)*rand(1..10),
   user_id: user7.id,
-  aircraft_id: aircraft6.id
+  aircraft_id: aircraft6.id,
+  status: true
 )
 
 Booking.create!(
@@ -253,7 +258,8 @@ Booking.create!(
   end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
   total_price: rand(150..2000)*rand(1..10),
   user_id: user10.id,
-  aircraft_id: aircraft7.id
+  aircraft_id: aircraft7.id,
+  status: true
 )
 
 Booking.create!(
@@ -261,7 +267,8 @@ Booking.create!(
   end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
   total_price: rand(150..2000)*rand(1..10),
   user_id: user9.id,
-  aircraft_id: aircraft8.id
+  aircraft_id: aircraft8.id,
+  status: true
 )
 
 Booking.create!(
@@ -269,7 +276,8 @@ Booking.create!(
   end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
   total_price: rand(150..2000)*rand(1..10),
   user_id: user5.id,
-  aircraft_id: aircraft3.id
+  aircraft_id: aircraft3.id,
+  status: true
 )
 
 Booking.create!(
@@ -277,7 +285,8 @@ Booking.create!(
   end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
   total_price: rand(150..2000)*rand(1..10),
   user_id: user6.id,
-  aircraft_id: aircraft1.id
+  aircraft_id: aircraft1.id,
+  status: true
 )
 
 puts "Handling photos..."
