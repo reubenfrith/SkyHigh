@@ -23,6 +23,12 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to bookings_path
+  end
+
   def show
     @booking = Booking.find(params[:id])
     @aircraft = Aircraft.find(@booking.aircraft_id)
