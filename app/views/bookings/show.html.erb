@@ -1,1 +1,10 @@
-<h2> Congratulations, you're ready to fly!</h2>
+<h1>Your <%= @aircraft.aircraft_type %> Booking!</h1>
+<h2>Booking ID # <%= @booking.id %></h2>
+
+<p>Start Date: <%= @booking.start_date %></p>
+<p>End Date: <%= @booking.end_date %></p>
+<p>Departure City: <%= @aircraft.departure_address %></p>
+<p>Arrival City: <%= @aircraft.arrival_address %></p>
+<p>Total Price: $<%= @booking.total_price %></p>
+
+<%= link_to "Read More About Your #{@aircraft.aircraft_type}",aircraft_path(@aircraft), class: "btn btn-primary w-50"  %>
