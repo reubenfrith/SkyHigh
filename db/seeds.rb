@@ -214,7 +214,7 @@ Booking.create!(
   total_price: rand(150..2000)*rand(1..10),
   user_id: user3.id,
   aircraft_id: aircraft4.id,
-  status: true
+  confirmation_status: true
 )
 
 Booking.create!(
@@ -223,7 +223,7 @@ Booking.create!(
   total_price: rand(150..2000)*rand(1..10),
   user_id: user4.id,
   aircraft_id: aircraft3.id,
-  status: true
+  confirmation_status: true
 )
 
 Booking.create!(
@@ -232,7 +232,7 @@ Booking.create!(
   total_price: rand(150..2000)*rand(1..10),
   user_id: user3.id,
   aircraft_id: aircraft5.id,
-  status: true
+  confirmation_status: true
 )
 
 Booking.create!(
@@ -241,7 +241,16 @@ Booking.create!(
   total_price: rand(150..2000)*rand(1..10),
   user_id: user5.id,
   aircraft_id: aircraft6.id,
-  status: true
+  confirmation_status: false
+)
+
+Booking.create!(
+  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
+  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
+  total_price: rand(150..2000)*rand(1..10),
+  user_id: user5.id,
+  aircraft_id: aircraft6.id,
+  confirmation_status: true
 )
 
 Booking.create!(
@@ -250,7 +259,7 @@ Booking.create!(
   total_price: rand(150..2000)*rand(1..10),
   user_id: user7.id,
   aircraft_id: aircraft6.id,
-  status: true
+  confirmation_status: true
 )
 
 Booking.create!(
@@ -259,7 +268,7 @@ Booking.create!(
   total_price: rand(150..2000)*rand(1..10),
   user_id: user10.id,
   aircraft_id: aircraft7.id,
-  status: true
+  confirmation_status: true
 )
 
 Booking.create!(
@@ -268,7 +277,7 @@ Booking.create!(
   total_price: rand(150..2000)*rand(1..10),
   user_id: user9.id,
   aircraft_id: aircraft8.id,
-  status: true
+  confirmation_status: true
 )
 
 Booking.create!(
@@ -277,7 +286,7 @@ Booking.create!(
   total_price: rand(150..2000)*rand(1..10),
   user_id: user5.id,
   aircraft_id: aircraft3.id,
-  status: true
+  confirmation_status: true
 )
 
 Booking.create!(
@@ -286,7 +295,7 @@ Booking.create!(
   total_price: rand(150..2000)*rand(1..10),
   user_id: user6.id,
   aircraft_id: aircraft1.id,
-  status: true
+  confirmation_status: true
 )
 
 puts "Handling photos..."

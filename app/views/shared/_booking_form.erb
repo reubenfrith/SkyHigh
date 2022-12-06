@@ -1,5 +1,6 @@
 <%= simple_form_for [@aircraft, @booking] do |f| %>
   <%= f.input  :start_date, as: :date, html5: true %>
   <%= f.input  :end_date, as: :date, html5: true %>
+  <%= f.input_field :confirmation_status, as: :boolean, hidden: true%>
   <%= f.submit class:"btn btn-primary" %>
 <% end %>

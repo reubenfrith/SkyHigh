@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
     number_of_days = (@booking.end_date - @booking.start_date) + 1
     @booking.total_price = @aircraft.price_per_day * number_of_days
     @booking.user = current_user
+    @booking.confirmation_status = false
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -34,6 +35,14 @@ class BookingsController < ApplicationController
     @aircraft = Aircraft.find(@booking.aircraft_id)
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+    @booking_action = params[:confirm]
+    @booking.confirmation_status = @booking_action
+    @booking.save
+    redirect_to bookings_path
+  end
+
   private
 
   def aircraft_params
@@ -45,7 +54,7 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(
-      :start_date, :end_date, :aircraft_id, :user_id, :total_price
+      :start_date, :end_date, :aircraft_id, :user_id, :total_price, :confirmation_status, :confirm
     )
   end
 
