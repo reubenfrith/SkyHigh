@@ -13,8 +13,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.aircraft = @aircraft
-    number_of_days = (@booking.end_date - @booking.start_date)
-    number_of_days == 0 ? number_of_days = 1 : number_of_days = number_of_days
+    number_of_days = (@booking.end_date - @booking.start_date) + 1
     @booking.total_price = @aircraft.price_per_day * number_of_days
     @booking.user = current_user
     if @booking.save
