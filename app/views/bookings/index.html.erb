@@ -1,40 +1,41 @@
-<div class="container mt-3">
-  <div class="row">
+<div class="container mt-5">
+  <div class="row gy-5">
     <div class="col-12">
       <h1>Your Bookings</h1>
     </div>
   </div>
 
-  <div class="row">
-    <% @your_bookings.each do |booking| %>
-      <div class="col-md-4">
-        <div class="aircraft-card">
-          <div class="aircraft-card-content">
-            <div class="aircraft-card-title">
-              <% aircraft = Aircraft.find(booking.aircraft_id) %>
-              <h3><%= link_to "#{aircraft.title}", aircraft_path(aircraft) %></h3>
-              <h5>Aircraft: <%= aircraft.aircraft_type %></h5>
-            </div>
-            <div class="flex">
-              <div class="flex align-items-center">
-                <b><span>Start Date:</span></b>
-                <span><%= booking.start_date %></span>
-              </div>
-              <div class="flex align-items-center">
-                <b><span>End Date:</span></b>
-                <span><%= booking.end_date %></span>
-              </div>
-            </div>
-          </div>
-          <div class="flat-card-actions">
-            <%= link_to "More info", aircrafts_path %>
-          </div>
+<div class="row g-5 ">
+    <% @your_bookings.each do |your_booking| %>
+    <div class="col-3 card-deck ">
+      <div class="card rounded-3 h-100 shadow" >
+        <div class="card-body">
+          <h5 class="card-title">Booking ID # <%= your_booking.id %></h5>
+          <p class="card-text">
+          <% aircraft = Aircraft.find(your_booking.aircraft_id)%>
+            <h6><%= aircraft.aircraft_type %></h6>
+            <p><b><span>Departure City:</span></b>
+            <span><%= aircraft.departure_address %></span></p>
+            <p><b><span>Arrival City:</span></b>
+            <span><%= aircraft.arrival_address %></span></p>
+            <p><b>Seats:</b> <%= aircraft.max_occupants %></p>
+            <p><b>Start Date:</b> <%= your_booking.start_date %></p>
+            <p><b>End Date:</b> <%= your_booking.end_date %></p>
+          </p>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+          <%= link_to "View", booking_path(your_booking), class: "btn btn-primary" %>
+          <%= link_to "Edit", edit_booking_path(your_booking), class: "btn btn-secondary "  %>
+          <%= link_to "Delete", booking_path(your_booking), class: "btn btn-danger text-white" ,data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
         </div>
       </div>
+    </div>
     <% end %>
   </div>
+</div>
 
-    <div class="row">
+<div class="container mt-5">
+  <div class="row gy-5">
     <div class="col-12">
       <h1>Your Aircraft Bookings</h1>
     </div>
@@ -71,8 +72,30 @@
             <%= link_to "Accept", aircrafts_path %>
             <%= link_to "Reject", aircrafts_path %>
           </div>
+ <div class="row g-5 ">
+    <% @your_aircraft_bookings.each do |your_aircraft_booking| %>
+    <div class="col-3 card-deck ">
+      <div class="card rounded-3 h-100 shadow" >
+        <div class="card-body">
+          <h5 class="card-title">Booking ID # <%= your_aircraft_booking.id %></h5>
+          <p class="card-text">
+          <% aircraft = Aircraft.find(your_aircraft_booking.aircraft_id)%>
+            <h6><%= aircraft.aircraft_type %></h6>
+            <p><b><span>Departure City:</span></b>
+            <span><%= aircraft.departure_address %></span></p>
+            <p><b><span>Arrival City:</span></b>
+            <span><%= aircraft.arrival_address %></span></p>
+            <p><b>Seats:</b> <%= aircraft.max_occupants %></p>
+            <p><b>Start Date:</b> <%= your_aircraft_booking.start_date %></p>
+            <p><b>End Date:</b> <%= your_aircraft_booking.end_date %></p>
+          </p>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+          <%= link_to "Accept", booking_path(your_aircraft_booking), class: "btn btn-primary" %>
+          <%= link_to "Decline", edit_booking_path(your_aircraft_booking), class: "btn btn-danger text-white"  %>
         </div>
       </div>
+    </div>
     <% end %>
   </div>
 </div>
