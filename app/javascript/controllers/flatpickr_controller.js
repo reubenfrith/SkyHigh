@@ -6,8 +6,12 @@ export default class extends Controller {
   static targets = [ "startDate", "endDate" ]
   connect() {
     flatpickr(this.startDateTarget, {
-      dateFormat: "j-F-Y"})
+      dateFormat: "j-F-Y",
+      minDate: "today"
+    })
     flatpickr(this.endDateTarget, {
-      dateFormat: "j-F-Y"})
+      dateFormat: "j-F-Y",
+      minDate: "today"
+    })
   }
 }

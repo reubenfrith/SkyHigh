@@ -32,7 +32,6 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
-    @aircraft = Aircraft.find(@booking.aircraft_id)
   end
 
   def edit
@@ -42,8 +41,20 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
-    redirect_to booking_path(@booking)
+    if @booking.update(booking_params)
+        @booking.update(booking_params)
+        redirect_to booking_path(@booking)
+    else
+      @aircraft = Aircraft.find(@booking.aircraft_id)
+
+        render :edit, status: :unprocessable_entity
+    end
+
+    # @booking = Booking.find(params[:id])
+    # number_of_days = (@booking.end_date - @booking.start_date) + 1
+    # aircraft = Aircraft.find(@booking.aircraft_id)
+    # @booking.update(total_price: (aircraft.price_per_day * number_of_days))
+
   end
 
   private
@@ -51,7 +62,7 @@ class BookingsController < ApplicationController
   def aircraft_params
     params.require(:aircraft).permit(
       :aircraft_type, :title, :description, :price_per_day,
-      :max_occupants, :departure_address, :arrival_address
+      :max_occupants, :departure_address, :arrival_address, photos: []
     )
   end
 

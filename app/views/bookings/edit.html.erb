@@ -1,7 +1,21 @@
 <h2> Your Booking </h2>
 
-<%= simple_form_for (@booking) do |f| %>
-  <%= f.input  :start_date, as: :date, html5: true %>
-  <%= f.input  :end_date, as: :date, html5: true %>
-  <%= f.submit class:"btn btn-primary"  %>
-<% end %>
+<div class="text-center">
+  <h1> Your Booking Details </h1>
+</div>
+<div class="container">
+  <h2 class="text-center"><%= @aircraft.title %> from
+  <br>
+  <%= @booking.start_date.strftime('%d/%b/%Y') %> to <%= @booking.end_date.strftime('%d/%b/%Y') %></h1>
+  <p>Seats: <%= @aircraft.max_occupants %></p>
+  <p>Price per day: $<%= @aircraft.price_per_day %></p>
+  <p>Total Price: $<%= (@booking.end_date.mjd + 1 - @booking.start_date.mjd)*@aircraft.price_per_day %> </p>
+  <p>Departure Address: <%= @aircraft.departure_address %></p>
+  <p>Arrival Address: <%= @aircraft.arrival_address %></p>
+
+  <%= simple_form_for [@booking], data: { controller: 'flatpickr' } do |f| %>
+    <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startDate" } } %>
+    <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endDate" } } %>
+    <%= f.submit class:"btn btn-primary" %>
+  <% end %>
+</div>
