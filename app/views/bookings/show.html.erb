@@ -7,7 +7,7 @@
   <%= @booking.start_date.strftime('%d/%b/%Y') %> to <%= @booking.end_date.strftime('%d/%b/%Y') %></h1>
   <p>Seats: <%= @aircraft.max_occupants %></p>
   <p>Price per day: $<%= @aircraft.price_per_day %></p>
-  <p>Total Price: <%= (@booking.end_date.mjd + 1 - @booking.start_date.mjd)*@aircraft.price_per_day %> </p>
+  <p>Total Price: $<%= (@booking.end_date.mjd + 1 - @booking.start_date.mjd)*@aircraft.price_per_day %> </p>
   <p>Departure Address: <%= @aircraft.departure_address %></p>
   <p>Arrival Address: <%= @aircraft.arrival_address %></p>
   <div id="carouselExampleFade" class="carousel slide carousel-fade mb-3" data-bs-ride="carousel">
