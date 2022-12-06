@@ -10,6 +10,5 @@ Rails.application.routes.draw do
       get :my_aircraft
     end
   end
-
   resources :bookings, only: %i[update edit destroy show index]
 end
