@@ -37,10 +37,17 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+    @aircraft = Aircraft.find(@booking.aircraft_id)
     @booking_action = params[:confirm]
     @booking.confirmation_status = @booking_action
     @booking.save
     redirect_to bookings_path
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to booking_path(@booking)
   end
 
   private
