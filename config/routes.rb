@@ -4,12 +4,11 @@ Rails.application.routes.draw do
   root to: "aircrafts#index"
 
   resources :aircrafts do
-    resources :bookings, only: %i[new create]
+    resources :bookings, only: %i[ new create]
 
     collection do
       get :my_aircraft
     end
   end
-
-  resources :bookings, only: %i[show index edit destroy]
+  resources :bookings, only: %i[ update edit destroy show index]
 end
