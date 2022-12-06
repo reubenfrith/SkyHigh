@@ -1,10 +1,37 @@
-<h1>Your <%= @aircraft.aircraft_type %> Booking!</h1>
-<h2>Booking ID # <%= @booking.id %></h2>
+<div class="text-center">
+  <h1> Your Booking Details </h1>
+</div>
+<div class="container">
+  <h2 class="text-center"><%= @aircraft.title %> from
+  <br>
+  <%= @booking.start_date.strftime('%d/%b/%Y') %> to <%= @booking.end_date.strftime('%d/%b/%Y') %></h1>
+  <p>Seats: <%= @aircraft.max_occupants %></p>
+  <p>Price per day: $<%= @aircraft.price_per_day %></p>
+  <p>Total Price: <%= (@booking.end_date.mjd + 1 - @booking.start_date.mjd)*@aircraft.price_per_day %> </p>
+  <p>Departure Address: <%= @aircraft.departure_address %></p>
+  <p>Arrival Address: <%= @aircraft.arrival_address %></p>
+  <div id="carouselExampleFade" class="carousel slide carousel-fade mb-3" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <% if @aircraft.photos.attached? %>
+          <% @aircraft.photos.each do |photo| %>
+          <div class="carousel-item active">
+            <%= cl_image_tag photo.key, class:"d-block w-100", height:500 %>
+          </div>
+          <% end %>
+        <% end %>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="text-center"><%= link_to "Make a booking!",  new_aircraft_booking_path(@aircraft), class: "btn btn-primary w-50" %></div>
+</div>
 
-<p>Start Date: <%= @booking.start_date %></p>
-<p>End Date: <%= @booking.end_date %></p>
-<p>Departure City: <%= @aircraft.departure_address %></p>
-<p>Arrival City: <%= @aircraft.arrival_address %></p>
-<p>Total Price: $<%= @booking.total_price %></p>
-
-<%= link_to "Read More About Your #{@aircraft.aircraft_type}",aircraft_path(@aircraft), class: "btn btn-primary w-50"  %>
+<div class="text-center">
+  <%= link_to "Read More About Your #{@aircraft.aircraft_type}",aircraft_path(@aircraft), class: "btn btn-primary w-50"  %>
+</div>
