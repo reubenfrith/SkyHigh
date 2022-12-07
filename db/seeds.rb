@@ -209,8 +209,8 @@ aircraft8 = Aircraft.create!(
 puts "Creating some bookings..."
 
 Booking.create!(
-  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
-  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
+  start_date: Faker::Time.between(from: DateTime.now + 9, to: DateTime.now + 9),
+  end_date: Faker::Time.between(from: DateTime.now + 10, to: DateTime.now + 10),
   total_price: rand(150..2000)*rand(1..10),
   user_id: user3.id,
   aircraft_id: aircraft4.id,
@@ -218,17 +218,8 @@ Booking.create!(
 )
 
 Booking.create!(
-  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
-  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
-  total_price: rand(150..2000)*rand(1..10),
-  user_id: user4.id,
-  aircraft_id: aircraft3.id,
-  confirmation_status: true
-)
-
-Booking.create!(
-  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
-  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
+  start_date: Faker::Time.between(from: DateTime.now, to: DateTime.now + 1),
+  end_date: Faker::Time.between(from: DateTime.now + 2, to: DateTime.now + 5),
   total_price: rand(150..2000)*rand(1..10),
   user_id: user3.id,
   aircraft_id: aircraft5.id,
@@ -236,26 +227,8 @@ Booking.create!(
 )
 
 Booking.create!(
-  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
-  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
-  total_price: rand(150..2000)*rand(1..10),
-  user_id: user5.id,
-  aircraft_id: aircraft6.id,
-  confirmation_status: false
-)
-
-Booking.create!(
-  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
-  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
-  total_price: rand(150..2000)*rand(1..10),
-  user_id: user5.id,
-  aircraft_id: aircraft6.id,
-  confirmation_status: true
-)
-
-Booking.create!(
-  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
-  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
+  start_date: Faker::Time.between(from: DateTime.now, to: DateTime.now + 10),
+  end_date: Faker::Time.between(from: DateTime.now + 11, to: DateTime.now + 20),
   total_price: rand(150..2000)*rand(1..10),
   user_id: user7.id,
   aircraft_id: aircraft6.id,
@@ -263,8 +236,8 @@ Booking.create!(
 )
 
 Booking.create!(
-  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
-  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
+  start_date: Faker::Time.between(from: DateTime.now + 10, to: DateTime.now + 11),
+  end_date: Faker::Time.between(from: DateTime.now + 12, to: DateTime.now + 15),
   total_price: rand(150..2000)*rand(1..10),
   user_id: user10.id,
   aircraft_id: aircraft7.id,
@@ -272,8 +245,8 @@ Booking.create!(
 )
 
 Booking.create!(
-  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
-  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
+  start_date: Faker::Time.between(from: DateTime.now, to: DateTime.now + 5),
+  end_date: Faker::Time.between(from: DateTime.now + 6, to: DateTime.now + 10),
   total_price: rand(150..2000)*rand(1..10),
   user_id: user9.id,
   aircraft_id: aircraft8.id,
@@ -281,8 +254,8 @@ Booking.create!(
 )
 
 Booking.create!(
-  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
-  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
+  start_date: Faker::Time.between(from: DateTime.now, to: DateTime.now + 10),
+  end_date: Faker::Time.between(from: DateTime.now + 11, to: DateTime.now + 19),
   total_price: rand(150..2000)*rand(1..10),
   user_id: user5.id,
   aircraft_id: aircraft3.id,
@@ -290,8 +263,8 @@ Booking.create!(
 )
 
 Booking.create!(
-  start_date: Faker::Time.between(from: DateTime.now - 10, to: DateTime.now - 1),
-  end_date: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 10),
+  start_date: Faker::Time.between(from: DateTime.now, to: DateTime.now + 1),
+  end_date: Faker::Time.between(from: DateTime.now + 3, to: DateTime.now + 9),
   total_price: rand(150..2000)*rand(1..10),
   user_id: user6.id,
   aircraft_id: aircraft1.id,
