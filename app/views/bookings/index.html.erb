@@ -6,7 +6,7 @@
   </div>
 
 <div class="row g-5 ">
-    <% @your_bookings.each do |your_booking| %>
+    <% @your_bookings.order(:id).each do |your_booking| %>
     <div class="col-3 card-deck ">
       <div class="card rounded-3 h-100 shadow" >
         <div class="card-body">
@@ -42,7 +42,7 @@
   </div>
 
  <div class="row g-5 ">
-    <% @your_aircraft_bookings.each do |your_aircraft_booking| %>
+    <% @your_aircraft_bookings.order(:id).each do |your_aircraft_booking| %>
     <div class="col-3 card-deck ">
       <div class="card rounded-3 h-100 shadow" >
         <div class="card-body">
@@ -57,11 +57,12 @@
             <p><b>Seats:</b> <%= aircraft.max_occupants %></p>
             <p><b>Start Date:</b> <%= your_aircraft_booking.start_date %></p>
             <p><b>End Date:</b> <%= your_aircraft_booking.end_date %></p>
+            <p><b>Booking Confirmed:</b> <%= your_aircraft_booking.confirmation_status %></p>
           </p>
         </div>
         <div class="card-footer bg-transparent border-0">
-          <%= link_to "Accept", booking_path(your_aircraft_booking), class: "btn btn-primary" %>
-          <%= link_to "Decline", edit_booking_path(your_aircraft_booking), class: "btn btn-danger text-white"  %>
+          <%= link_to "Accept", edit_booking_path(your_aircraft_booking, confirm: "true"), method: :post, class: "btn btn-primary" %>
+          <%= link_to "Decline", edit_booking_path(your_aircraft_booking, confirm: "false"), method: :post, class: "btn btn-danger text-white"  %>
         </div>
       </div>
     </div>
