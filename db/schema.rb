@@ -64,7 +64,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_100830) do
     t.integer "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "status"
     t.boolean "confirmation_status"
     t.index ["aircraft_id"], name: "index_bookings_on_aircraft_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
