@@ -1,6 +1,5 @@
-<%= simple_form_for [@aircraft, @booking] do |f| %>
-  <%= f.input  :start_date, as: :date, html5: true %>
-  <%= f.input  :end_date, as: :date, html5: true %>
-  <%= f.input_field :confirmation_status, as: :boolean, hidden: true%>
+<%= simple_form_for [@aircraft, @booking], data: { controller: 'flatpickr' } do |f| %>
+  <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startDate" } } %>
+  <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endDate" } } %>
   <%= f.submit class:"btn btn-primary" %>
 <% end %>
