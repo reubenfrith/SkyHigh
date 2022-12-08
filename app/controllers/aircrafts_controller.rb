@@ -4,6 +4,8 @@ class AircraftsController < ApplicationController
   def index
     if params[:query].present?
       @aircrafts = Aircraft.search_for_aircrafts_type_title_description(params[:query])
+    elsif params[:price_per_day_search]
+      @aircrafts = Aircraft.price_0_to_500
     else
       @aircrafts = Aircraft.all
     end
@@ -52,7 +54,7 @@ class AircraftsController < ApplicationController
 
   def aircraft_params
     params.require(:aircraft).permit(
-      :aircraft_type, :title, :description, :price_per_day,
+      :aircraft_type, :title, :description, :price_per_day, :price_per_day_search,
       :max_occupants, :departure_address, :arrival_address, photos: []
     )
   end

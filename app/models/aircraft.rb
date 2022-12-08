@@ -25,9 +25,4 @@ class Aircraft < ApplicationRecord
      tsearch: { prefix: true }
     }
 
-  pg_search_scope :price_0_to_500,
-    against: :price_per_day
-    using:{
-     tsearch: { prefix: true }
-    }
 end
