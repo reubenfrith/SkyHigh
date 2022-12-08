@@ -7,4 +7,16 @@ class Aircraft < ApplicationRecord
   validates :price_per_day, presence: true
   validates :departure_address, presence: true
   validates :arrival_address, presence: true
+
+  aircraft_search_weighting = {
+    aircraft_type: 'A',
+    title: 'B',
+    description: 'C'
+  }
+  include PgSearch::Model
+  pg_search_scope :search_for_aircrafts_type_title_description,
+    against: aircraft_search_weighting,
+    using:{
+     tsearch: { prefix: true }
+    }
 end

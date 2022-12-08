@@ -2,7 +2,11 @@ class AircraftsController < ApplicationController
   before_action :set_aircraft, only: %i[destroy show edit]
 
   def index
-    @aircrafts = Aircraft.all
+    if params[:query].present?
+      @aircrafts = Aircraft.search_for_aircrafts_type_title_description(params[:query])
+    else
+      @aircrafts = Aircraft.all
+    end
   end
 
   def new
