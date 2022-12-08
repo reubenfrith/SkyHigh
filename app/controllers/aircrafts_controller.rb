@@ -4,8 +4,12 @@ class AircraftsController < ApplicationController
   def index
     if params[:query].present?
       @aircrafts = Aircraft.search_for_aircrafts_type_title_description(params[:query])
-    elsif params[:price_per_day_search]
+    elsif params[:price_0_to_500] == "1"
       @aircrafts = Aircraft.price_0_to_500
+    elsif params[:price_500_to_1000] == "1"
+      @aircrafts = Aircraft.price_500_to_1000
+    elsif params[:price_over_1000] == "1"
+      @aircrafts = Aircraft.price_over_1000
     else
       @aircrafts = Aircraft.all
     end
@@ -54,9 +58,9 @@ class AircraftsController < ApplicationController
 
   def aircraft_params
     params.require(:aircraft).permit(
-      :aircraft_type, :title, :description, :price_per_day, :price_per_day_search,
+      :aircraft_type, :title, :description, :price_per_day,
+      :price_0_to_500, :price_500_to_1000, :price_over_1000,
       :max_occupants, :departure_address, :arrival_address, photos: []
     )
   end
-
 end
