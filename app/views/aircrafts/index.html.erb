@@ -6,10 +6,12 @@
   %>
   <%= submit_tag "Search", class: "btn btn-primary p-2" %>
 <% end %>
+<div>
 <h3> Filter by Price per Night:</h3>
-  <%= link_to "$0-500", { price_0_to_500: "1" }, class: "btn btn-secondary p-2" %>
-  <%= link_to "$500-1000", { price_500_to_1000: "1" }, class: "btn btn-secondary p-2" %>
-  <%= link_to "$1000+", { price_over_1000: "1" }, class: "btn btn-secondary p-2" %>
+  <%= link_to "$0-500", { price_0_to_500: "1" }, class: "btn btn-secondary p-2", data: { turbolinks: false } %>
+  <%= link_to "$500-1000", { price_500_to_1000: "1" }, class: "btn btn-secondary p-2", data: { turbolinks: false } %>
+  <%= link_to "$1000+", { price_over_1000: "1" }, class: "btn btn-secondary p-2", data: { turbolinks: false } %>
+</div>
 <div class="container mt-3">
   <div class="row gy-5">
     <div class="col-12">
