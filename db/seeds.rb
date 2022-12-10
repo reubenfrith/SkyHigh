@@ -3,6 +3,7 @@ puts "Cleaning Database"
 User.destroy_all
 Aircraft.destroy_all
 Booking.destroy_all
+Review.destroy_all
 
 renterDemo = User.create!(
   first_name: "Renter",
@@ -57,17 +58,20 @@ puts "Adding Reviews to Hot Air Balloon"
 
 Review.create!(
   aircraft_id: hot_air_balloon.id,
+  user_id: userDemo.id,
   content: "I took my work team on one of these for a teambuilding activity and it was really fun and wholesome
   experience. Jack was a great 'pilot' too - very funny and unobtrusive!"
 )
 
 Review.create!(
   aircraft_id: hot_air_balloon.id,
+  user_id: renterDemo.id,
   content: "Great ride - the basket was more spacious than expected and the views are incredible"
 )
 
 Review.create!(
   aircraft_id: hot_air_balloon.id,
+  user_id: renterDemo.id,
   content: "For the price hard to beat this experience if you can get a full basket!"
 )
 
@@ -102,12 +106,14 @@ puts "Adding Copter Reviews"
 
 Review.create!(
   aircraft_id: copter.id,
-  content: "Fun experience"
+  content: "Fun experience",
+  user_id: userDemo.id
 )
 
 Review.create!(
   aircraft_id: copter.id,
-  content: "A little bit bumpy but still had a lot of fun!"
+  content: "A little bit bumpy but still had a lot of fun!",
+  user_id: userDemo.id
 )
 
 puts "Creating Bookings"
