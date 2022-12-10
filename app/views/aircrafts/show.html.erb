@@ -1,5 +1,5 @@
 <div class="container">
-<h1 class="text-center"><%= @aircraft.title %></h1>
+  <h1 class="text-center"><%= @aircraft.title %></h1>
 <div id="carouselExampleFade" class="carousel slide carousel-fade mb-3" data-bs-ride="carousel">
   <div class="carousel-inner">
       <% if @aircraft.photos.attached? %>
@@ -21,10 +21,10 @@
 </div>
 <h2><%= @aircraft.aircraft_type %></h2>
 <p><%= @aircraft.description %></p>
-<p>Seats: <%= @aircraft.max_occupants %></p>
-<p>Price per day: $<%= @aircraft.price_per_day %></p>
-<p>Departure Address: <%= @aircraft.departure_address %></p>
-<p>Arrival Address: <%= @aircraft.arrival_address %></p>
+<p><strong>Seats:</strong> <%= @aircraft.max_occupants %></p>
+<p><strong>Price per day:</strong> $<%= @aircraft.price_per_day %></p>
+<p><strong>Departure Address:</strong> <%= @aircraft.departure_address %></p>
+<p><strong>Arrival Address:</strong> <%= @aircraft.arrival_address %></p>
 <div class="text-center"><%= link_to "Make a booking!",  new_aircraft_booking_path(@aircraft), class: "btn btn-primary w-50" %></div>
 </div>
 
