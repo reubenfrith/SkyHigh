@@ -35,5 +35,7 @@
 </div>
 
 <div class="text-center">
-  <%= link_to "Read More About Your #{aircraft.aircraft_type}",aircraft_path(aircraft), class: "btn btn-primary w-50"  %>
+  <%= link_to "Read More About Your #{aircraft.aircraft_type}",aircraft_path(aircraft), class: "btn btn-primary " %>
+  OR
+  <%= link_to "Leave a Review after you Fly", new_aircraft_review_path(aircraft) ,class: "btn btn-primary " %>
 </div>
