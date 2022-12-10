@@ -14,13 +14,13 @@
           <p class="card-text">
           <% aircraft = Aircraft.find(your_booking.aircraft_id)%>
             <h6><%= aircraft.aircraft_type %></h6>
-            <p><b><span>Departure City:</span></b>
+            <p><b><span><strong>Departure City:</strong></span></b>
             <span><%= aircraft.departure_address %></span></p>
-            <p><b><span>Arrival City:</span></b>
+            <p><b><span><strong>Arrival City:</strong></span></b>
             <span><%= aircraft.arrival_address %></span></p>
-            <p><b>Seats:</b> <%= aircraft.max_occupants %></p>
-            <p><b>Start Date:</b> <%= your_booking.start_date %></p>
-            <p><b>End Date:</b> <%= your_booking.end_date %></p>
+            <p><b><strong>Seats:</strong></b> <%= aircraft.max_occupants %></p>
+            <p><b><strong>Start Date:</strong></b> <%= your_booking.start_date %></p>
+            <p><b><strong>End Date:</strong></b> <%= your_booking.end_date %></p>
           </p>
         </div>
         <div class="card-footer bg-transparent border-0">
