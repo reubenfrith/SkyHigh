@@ -13,5 +13,10 @@ Rails.application.routes.draw do
     end
   end
   resources :reviews, only: %i[destroy update]
-  resources :bookings, only: %i[update edit destroy show index]
+  resources :bookings, only: %i[update edit destroy show index] do
+    member do
+      get :accept
+      get :decline
+    end
+  end
 end
