@@ -7,4 +7,4 @@ class Aircraft < ApplicationRecord
   validates :price_per_day, presence: true
   validates :departure_address, presence: true
   validates :arrival_address, presence: true
-end
+ end
