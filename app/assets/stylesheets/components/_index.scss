@@ -3,3 +3,11 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+
+body {
+  margin-top: 1rem;
+}
+
+.form-rounded {
+  border-radius: 2rem;
+  }

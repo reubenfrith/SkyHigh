@@ -1,38 +1,25 @@
-<%= form_with url: aircrafts_path, method: :get, class: "d-flex my-3" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Get flying today!"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary p-2" %>
-<% end %>
-<div>
-<h3> Filter by Price per Night:</h3>
-  <%= link_to "$0-500", { price_0_to_500: "1" }, class: "btn btn-secondary p-2", data: { turbolinks: false } %>
-  <%= link_to "$500-1000", { price_500_to_1000: "1" }, class: "btn btn-secondary p-2", data: { turbolinks: false } %>
-  <%= link_to "$1000+", { price_over_1000: "1" }, class: "btn btn-secondary p-2", data: { turbolinks: false } %>
-</div>
-<div class="container mt-3">
+<div class="container mt-5">
   <div class="row gy-5">
     <div class="col-12">
       <h1>Hire an Aircraft</h1>
+      <br>
     </div>
   </div>
 
   <div class="row g-5 ">
     <% @aircrafts.each do |aircraft| %>
     <div class="col-3 card-deck ">
-      <div class="card rounded-3 h-100 shadow" >
+      <div class="card rounded-3 h-100 shadow">
         <% if aircraft.photos.attached? %>
-            <%= cl_image_tag aircraft.photos[0].key,:gravity=>"auto", crop: :fill %>
+        <%= cl_image_tag aircraft.photos[0].key,:gravity=>"auto", crop: :fill, :class=>"rounded-3" %>
         <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= aircraft.aircraft_type %></h5>
           <p class="card-text">
             <p><b><span>Departure City:</span></b>
-            <span><%= aircraft.departure_address %></span></p>
+              <span><%= aircraft.departure_address %></span></p>
             <p><b><span>Arrival City:</span></b>
-            <span><%= aircraft.arrival_address %></span></p>
+              <span><%= aircraft.arrival_address %></span></p>
             <p><b>Seats:</b> <%= aircraft.max_occupants %></p>
           </p>
         </div>
