@@ -5,9 +5,9 @@
 <% aircraft = Aircraft.find(@booking.aircraft_id) %>
 
 <div class="container">
-  <h2 class="text-center"><%= aircraft.title %> From
+  <h2 class="text-center"><%= aircraft.title %>
   <br>
-  <%= @booking.start_date.strftime('%d/%b/%Y') %> to <%= @booking.end_date.strftime('%d/%b/%Y') %></h1>
+  From <%= @booking.start_date.strftime('%d/%b/%Y') %> to <%= @booking.end_date.strftime('%d/%b/%Y') %></h1>
   <p><strong>Seats</strong>: <%= aircraft.max_occupants %></p>
   <p><strong>Price per day:</strong> $<%= aircraft.price_per_day %></p>
   <p><strong>Total Price:</strong> $<%= (@booking.end_date.mjd + 1 - @booking.start_date.mjd)*aircraft.price_per_day %> </p>
