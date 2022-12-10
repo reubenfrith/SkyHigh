@@ -21,7 +21,16 @@
             <p><b>Seats:</b> <%= aircraft.max_occupants %></p>
             <p><b>Start Date:</b> <%= your_booking.start_date %></p>
             <p><b>End Date:</b> <%= your_booking.end_date %></p>
-          </p>
+            <p><b>Booking Status:</b>
+            <% case your_booking.confirmation_status %>
+            <% when false %>
+              <span>Declined</span>
+            <% when true %>
+              <span>Confirmed</span>
+            <% else  %>
+              <span>Pending</span>
+            <% end %>
+            </p>
         </div>
         <div class="card-footer bg-transparent border-0">
           <%= link_to "View", booking_path(your_booking), class: "btn btn-primary" %>
@@ -59,12 +68,21 @@
             <p><b>Seats:</b> <%= aircraft.max_occupants %></p>
             <p><b>Start Date:</b> <%= your_aircraft_booking.start_date %></p>
             <p><b>End Date:</b> <%= your_aircraft_booking.end_date %></p>
-            <p><b>Booking Confirmed:</b> <%= your_aircraft_booking.confirmation_status %></p>
+            <p><b>Booking Status:</b>
+            <% case your_aircraft_booking.confirmation_status %>
+            <% when false %>
+              <span>Declined</span>
+            <% when true %>
+              <span>Confirmed</span>
+            <% else  %>
+              <span>Pending</span>
+            <% end %>
+            </p>
           </p>
         </div>
         <div class="card-footer bg-transparent border-0">
-          <%= link_to "Accept", edit_booking_path(your_aircraft_booking, confirm: "true"), method: :post, class: "btn btn-primary" %>
-          <%= link_to "Decline", edit_booking_path(your_aircraft_booking, confirm: "false"), method: :post, class: "btn btn-danger text-white"  %>
+          <%= link_to "Confirm", accept_booking_path(your_aircraft_booking), class: "btn btn-primary" %>
+          <%= link_to "Decline", decline_booking_path(your_aircraft_booking), class: "btn btn-danger text-white"  %>
         </div>
       </div>
     </div>
