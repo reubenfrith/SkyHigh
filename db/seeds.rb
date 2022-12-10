@@ -13,8 +13,8 @@ hot_air_balloon = Aircraft.create!(
   title: title.sample,
   description: description.sample,
   aircraft_type: aircraft_type.sample,
-  price_per_day: rand(150..2000),
-  max_occupants: rand(2..20),
+  price_per_day: 1200,
+  max_occupants: 8,
   departure_address: "41 Stewart St, Melbourne c/o Inspire9, Level1, Richmond VIC 3121",
   arrival_address: "16 Vla Gaudelet, 75011 Paris, France",
   user_id: userDemo.id
@@ -33,7 +33,21 @@ hot_air_balloon.save
 
 puts "Adding Reviews to Hot Air Balloon"
 
+Review.create!(
+  aircraft_id: hot_air_balloon,
+  content: "I took my work team on one of these for a teambuilding activity and it was really fun and wholesome
+  experience. Jack was a great 'pilot' too - very funny and unobtrusive!"
+)
 
+Review.create!(
+  aircraft_id: hot_air_balloon,
+  content: "Great ride - the basket was more spacious than expected and the views are incredible"
+)
+
+Review.create!(
+  aircraft_id: hot_air_balloon,
+  content: "For the price hard to beat this experience if you can get a full basket!"
+)
 # User.destroy_all
 # Aircraft.destroy_all
 # Booking.destroy_all
