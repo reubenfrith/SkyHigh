@@ -12,8 +12,10 @@ class Aircraft < ApplicationRecord
 
   aircraft_search_weighting = {
     aircraft_type: 'A',
-    title: 'B',
-    description: 'C'
+    title:'B',
+    description: 'C',
+    departure_address: 'A',
+    arrival_address: 'A'
   }
   pg_search_scope :search_for_aircrafts_type_title_description,
     against: aircraft_search_weighting,

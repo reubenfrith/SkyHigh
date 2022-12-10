@@ -1,8 +1,134 @@
-puts "Cleaning database..."
+puts "Cleaning Database"
 
 User.destroy_all
 Aircraft.destroy_all
 Booking.destroy_all
+
+renterDemo = User.create!(
+  first_name: "Renter",
+  last_name: "Demoo",
+  email: "renter@gmail.com",
+  password: "123456"
+)
+
+userDemo = User.create!(
+  first_name: "Demo",
+  last_name: "User",
+  email: "demo@gmail.com",
+  password: "123456"
+)
+
+puts "Creating Hot Air Balloon for Demo"
+hot_air_balloon = Aircraft.create!(
+  title: "Spacious Hot Air Balloon Day Trip, Fully Piloted",
+  description: "Spend a comfy day up in the sky with up to 7 other friends or colleagues. Our pilot Jack is a magician comedian on the side
+  and he is a riot.",
+  aircraft_type: "Hot Air Balloon",
+  price_per_day: 1200,
+  max_occupants: 8,
+  departure_address: "41 Stewart St, Melbourne c/o Inspire9, Level1, Richmond VIC 3121",
+  arrival_address: "16 Vla Gaudelet, 75011 Paris, France",
+  user_id: userDemo.id
+)
+puts "Purging Balloon Images"
+
+hot_air_balloon.photos.purge
+
+hot_air_aircraft_images = [
+  "https://res.cloudinary.com/adrenalinecomau/image/upload/q_auto,f_auto/v1621578916/adventures/eps_13899.jpg",
+  "https://cdn.britannica.com/84/158184-050-1D7ADEB5/balloon.jpg",
+  "https://www.floatingimages.com.au/wp-content/uploads/2019/04/IMG_3433-low-res.jpg"
+]
+puts "Adding Hot Air Balloon Images"
+
+a = URI.open(hot_air_aircraft_images[0])
+hot_air_balloon.photos.attach(io: a, filename: "a1.jpg", content_type: "image/jpg")
+hot_air_balloon.save
+
+a = URI.open(hot_air_aircraft_images[1])
+hot_air_balloon.photos.attach(io: a, filename: "a2.jpg", content_type: "image/jpg")
+hot_air_balloon.save
+
+a = URI.open(hot_air_aircraft_images[2])
+hot_air_balloon.photos.attach(io: a, filename: "a3.jpg", content_type: "image/jpg")
+hot_air_balloon.save
+
+puts "Adding Reviews to Hot Air Balloon"
+
+Review.create!(
+  aircraft_id: hot_air_balloon.id,
+  content: "I took my work team on one of these for a teambuilding activity and it was really fun and wholesome
+  experience. Jack was a great 'pilot' too - very funny and unobtrusive!"
+)
+
+Review.create!(
+  aircraft_id: hot_air_balloon.id,
+  content: "Great ride - the basket was more spacious than expected and the views are incredible"
+)
+
+Review.create!(
+  aircraft_id: hot_air_balloon.id,
+  content: "For the price hard to beat this experience if you can get a full basket!"
+)
+
+puts "Creating a private helicopter flight"
+
+copter = Aircraft.create!(
+  title: "Co-pilot a helicopter with a professional",
+  description: "Spend 2 hours in the air with me in my copter. I can show you some basic co-piloting as well as
+  answer most questions you have about Choppers in general.",
+  aircraft_type: "Helicopter",
+  price_per_day: 700,
+  max_occupants: 2,
+  departure_address: "41 Stewart St, Melbourne c/o Inspire9, Level1, Richmond VIC 3121",
+  arrival_address: "16 Vla Gaudelet, 75011 Paris, France",
+  user_id: renterDemo.id
+)
+
+puts "Purging copter images"
+
+copter.photos.purge
+
+copter_images = [
+  "https://static.wixstatic.com/media/945de1_483631d3e6b14fe1b0ff33db3aee4c63~mv2.jpg/v1/fill/w_640,h_310,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/945de1_483631d3e6b14fe1b0ff33db3aee4c63~mv2.jpg"
+]
+
+puts "adding Copter images"
+b = URI.open(copter_images[0])
+copter.photos.attach(io: b, filename: "b1.jpg", content_type: "image/jpg")
+copter.save
+
+puts "Adding Copter Reviews"
+
+Review.create!(
+  aircraft_id: copter.id,
+  content: "Fun experience"
+)
+
+Review.create!(
+  aircraft_id: copter.id,
+  content: "A little bit bumpy but still had a lot of fun!"
+)
+
+puts "Creating Bookings"
+
+Booking.create!(
+  start_date: Faker::Time.between(from: DateTime.now, to: DateTime.now + 1),
+  end_date: Faker::Time.between(from: DateTime.now + 3, to: DateTime.now + 9),
+  total_price: 1200,
+  user_id: renterDemo.id,
+  aircraft_id: hot_air_balloon.id,
+  confirmation_status: true
+)
+
+Booking.create!(
+  start_date: Faker::Time.between(from: DateTime.now, to: DateTime.now + 1),
+  end_date: Faker::Time.between(from: DateTime.now + 3, to: DateTime.now + 9),
+  total_price: 700,
+  user_id: userDemo.id,
+  aircraft_id: copter.id,
+  confirmation_status: true
+)
 
 puts "Creating 10 users..."
 
