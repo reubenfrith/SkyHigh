@@ -27,3 +27,12 @@
 <p>Arrival Address: <%= @aircraft.arrival_address %></p>
 <div class="text-center"><%= link_to "Make a booking!",  new_aircraft_booking_path(@aircraft), class: "btn btn-primary w-50" %></div>
 </div>
+
+
+<p><strong>Reviews</strong></p>
+<ul class="list-group">
+  <% @aircraft.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>
+<br>
