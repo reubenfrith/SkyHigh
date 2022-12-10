@@ -13,6 +13,16 @@
   <p>Total Price: $<%= (@booking.end_date.mjd + 1 - @booking.start_date.mjd)*aircraft.price_per_day %> </p>
   <p>Departure Address: <%= aircraft.departure_address %></p>
   <p>Arrival Address: <%= aircraft.arrival_address %></p>
+  <p>Booking Status:
+            <% case @booking.confirmation_status %>
+            <% when false %>
+              <span>Declined</span>
+            <% when true %>
+              <span>Confirmed</span>
+            <% else  %>
+              <span>Pending</span>
+            <% end %>
+            </p>
   <div id="carouselExampleFade" class="carousel slide carousel-fade mb-3" data-bs-ride="carousel">
     <div class="carousel-inner">
         <% if aircraft.photos.attached? %>
