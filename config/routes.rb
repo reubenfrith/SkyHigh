@@ -6,12 +6,12 @@ Rails.application.routes.draw do
 
   resources :aircrafts do
     resources :bookings, only: %i[new create]
-    resources :reviews, only: %i[new create]
+    resources :reviews, only: %i[new create edit]
 
     collection do
       get :my_aircraft
     end
   end
-  resources :reviews, only: [:destroy]
+  resources :reviews, only: %i[destroy update]
   resources :bookings, only: %i[update edit destroy show index]
 end

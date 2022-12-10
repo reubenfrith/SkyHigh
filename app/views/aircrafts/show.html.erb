@@ -30,9 +30,15 @@
 
 
 <p><strong>Reviews</strong></p>
+ <% if @aircraft.reviews.empty? %>
+        <small><em class="text-muted">Be the first one to review this aircraft</em></small>
+      <% end %>
 <ul class="list-group">
   <% @aircraft.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.content %></li>
+    <li class="list-group-item"><%= review.content %>
+    <div class="text-center"> <%= link_to "Edit your review", edit_aircraft_review_path(review), class: "btn btn-primary " %></li>
+    </div>
   <% end %>
+
 </ul>
 <br>

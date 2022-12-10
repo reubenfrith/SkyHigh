@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_restaurant, only: %i[new create destroy]
+  before_action :set_aircraft, only: %i[new create destroy]
 
   def new
     @review = Review.new
@@ -15,6 +15,17 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    @review.update(review_params)
+    @aircraft = Aircraft.find(@review.aircraft_id)
+    redirect_to aircraft_path(@aircraft)
+  end
+
   def destroy
     @review.destroy
     redirect_to aircraft_path(@review.aircraft), status: :see_other
@@ -22,7 +33,7 @@ class ReviewsController < ApplicationController
 
   private
 
-  def set_restaurant
+  def set_aircraft
     @aircraft = Aircraft.find(params[:aircraft_id])
   end
 
